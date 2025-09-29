@@ -20,6 +20,3 @@
 <p align="center">
 <a href="mailto:Disnakamadushan66@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-Disnakamadushan66@gmail.com-blue?style=flat-square&logo=gmail"></a>
 </p>
-
-⭐️ **Thanks:)** [Danushka-Madushan](https://github.com/Danushka-Madushan/Danushka-Madushan)
-<img src="https://raw.githubusercontent.com/Trilokia/Trilokia/379277808c61ef204768a61bbc5d25bc7798ccf1/bottom_header.svg" />
