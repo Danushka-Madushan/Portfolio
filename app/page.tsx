@@ -60,7 +60,7 @@ const Home = () => {
           Made with ❤️ {"by "}
           <Link
             isExternal
-            href="https://github.com/Danushka-Madushan/"
+            href="https://github.com/Danushka-Madushan/Portfolio"
             className='text-sm text-muted-foreground'
             color='foreground'
             underline="always">
