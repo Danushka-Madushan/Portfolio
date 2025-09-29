@@ -48,7 +48,7 @@ const SkillSection = () => {
                 key={index}
                 className='w-96'
                 classNames={{
-                  base: 'rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100/20'
+                  base: 'rounded-md bg-[#02060c] border border-gray-100/20'
                 }}
               >
                 <CardBody>

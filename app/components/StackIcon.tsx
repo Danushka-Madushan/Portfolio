@@ -16,7 +16,7 @@ const StackIcon = ({ icon, tipString }: StackIconProps) => {
       <Card
         className={`w-${ICON_SIZE} h-${ICON_SIZE}`}
         classNames={{
-          base: 'rounded-full bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100/20',
+          base: 'rounded-full bg-[#02060c] border border-gray-100/20',
           body: 'flex items-center justify-center',
         }}
       >
