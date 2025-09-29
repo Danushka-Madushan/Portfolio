@@ -5,7 +5,7 @@
 <h3>About Me </h3>
 
 - 🎓  Studying Computer Science and Programming Languages. Also Interested in CyberSecurity
-- 💼  Currently following HND in Software Engineering @ **NIBM**
+- 💼  Currently following a HND in Software Engineering @ **NIBM**
 - 🌱  Learning more about **Web Technologies, APIs and Automation**.
 - ✍️  Making API-based Applications.
 
