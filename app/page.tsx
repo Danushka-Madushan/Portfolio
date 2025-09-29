@@ -19,7 +19,7 @@ const Home = () => {
       </div>
       {/* MotionGrid */}
       <BackgroundGrid />
-      <div className="relative z-10">
+      <div className="relative flex flex-col items-center z-10">
         {/* Hero */}
         <Hero />
         <h1 className="flex flex-col items-center bg-gradient-to-br from-foreground from-30% via-foreground/90 to-foreground/70 bg-clip-text text-4xl my-4 font-thin tracking-tight text-transparent">
