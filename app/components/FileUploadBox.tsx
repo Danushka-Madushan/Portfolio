@@ -91,6 +91,14 @@ const FileUploadBox = () => {
     setProcessing(false);
     setReadyFile(false);
     if (!response) {
+      addToast({
+        title: "Connection Error",
+        description: "Try again",
+        variant: 'flat',
+        color: "warning",
+      })
+      setProcessing(false);
+      setReadyFile(false);
       return;
     }
     setDLink(response.link)
