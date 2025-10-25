@@ -1,40 +1,24 @@
 'use client'
 
+import { iKitServices } from '@dmtools'
 import { Tabs, Tab } from '@heroui/tabs'
-import { Hash, UploadCloud } from 'lucide-react'
-import { useState } from 'react'
 
-const KitSelector = () => {
-  const [selected, setSelected] = useState<string | number>('gitbucket')
-
-  const services: {
-    key: string,
-    name: string,
-    IconNode: typeof UploadCloud
-  }[] = [
-      {
-        key: 'gitbucket',
-        name: 'GitBucket',
-        IconNode: UploadCloud
-      },
-      {
-        key: 'cryptocat',
-        name: 'CryptoCat',
-        IconNode: Hash
-      }
-    ]
+const KitSelector = ({ services, selected, setSelected }: iKitServices) => {
 
   return (
     <Tabs
       classNames={{
-        tabList: 'bg-gray-400/10 backdrop-filter backdrop-blur-sm'
+        cursor: 'bg-primary/50',
+        tabList: 'w-64 flex flex-col bg-gray-400/10',
+        base: 'w-full flex justify-center',
+        tab: 'px-4 py-3 hover:bg-gray-200/10 transition-all justify-start',
       }}
       size='lg'
+      radius='sm'
       selectedKey={selected}
       onSelectionChange={setSelected}
-      variant='bordered'
+      variant='solid'
       color='primary'
-      radius='full'
     >
       {
         services.map(({ key, name, IconNode }) => {

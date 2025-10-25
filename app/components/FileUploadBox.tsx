@@ -143,7 +143,7 @@ const FileUploadBox = () => {
             {isDragging ? 'Drop files here' : 'Drag and drop files here'}
           </p>
           <p className="pointer-events-none text-sm text-gray-500">
-            or click to browse (max 25Mb)
+            or click to browse (max 5Mb)
           </p>
         </div>
       </div>

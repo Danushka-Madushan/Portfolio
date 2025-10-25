@@ -1,4 +1,6 @@
-declare module '@github' {
+declare module '@dmtools' {
+  import { UploadCloud } from 'lucide-react';
+
   export interface iRepoGet {
     type: "dir" | "file" | "submodule" | "symlink";
     size: number;
@@ -15,5 +17,15 @@ declare module '@github' {
       html: string | null;
       self: string;
     };
+  }
+
+  export type iKitServices = {
+    services: {
+      key: string,
+      name: string,
+      IconNode: typeof UploadCloud
+    }[],
+    selected: string | number,
+    setSelected: (key: string | number) => void
   }
 }

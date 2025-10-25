@@ -7,6 +7,6 @@ export const ByteFileSize = (bytes: number) => {
 };
 
 export const isFileSizeExceeded = (file: File): boolean => {
-  const maxSizeBytes = 25 * 1024 * 1024
+  const maxSizeBytes = 5 * 1024 * 1024
   return file.size > maxSizeBytes
 }
