@@ -30,7 +30,7 @@ const Nav = () => {
             </div>
           }
         />
-        <Tab
+        {/* <Tab
           key="/kits"
           title={
             <div className="flex items-center space-x-2">
@@ -47,7 +47,7 @@ const Nav = () => {
               <span>AiHub</span>
             </div>
           }
-        />
+        /> */}
       </Tabs>
     </div>
   )
