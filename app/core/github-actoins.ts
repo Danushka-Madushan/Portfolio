@@ -1,7 +1,7 @@
 'use server'
 
 import { ENV, userAgent } from '@/app/constant/config'
-import { iRepoGet } from '@github'
+import { iRepoGet } from '@dmtools'
 import { Octokit } from '@octokit/core'
 import { unlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
