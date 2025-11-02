@@ -3,3 +3,22 @@
 /* Note: You may need to change the path to fit your project structure */
 @source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
 @custom-variant dark (&:is(.dark *));
+
+/* globals.css or component.css */
+.kitnav-scroll::-webkit-scrollbar {
+  width: 4px; /* Set scrollbar width */
+}
+
+.kitnav-scroll::-webkit-scrollbar-track {
+  @apply bg-transparent; /* Apply Tailwind background color */
+  border-radius: 10px;
+}
+
+.kitnav-scroll::-webkit-scrollbar-thumb {
+  @apply bg-[#242f3f]; /* Apply Tailwind background color for the thumb */
+  border-radius: 10px;
+}
+
+.kitnav-scroll::-webkit-scrollbar-thumb:hover {
+  @apply bg-blue-700; /* Hover state for the thumb */
+}
