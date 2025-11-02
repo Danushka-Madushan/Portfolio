@@ -23,7 +23,8 @@ declare module '@dmtools' {
     services: {
       key: string,
       name: string,
-      IconNode: typeof UploadCloud
+      IconNode?: typeof UploadCloud,
+      IconSVG?: JSX.Element
     }[],
     selected: string | number,
     setSelected: (key: string | number) => void
