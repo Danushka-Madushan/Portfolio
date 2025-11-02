@@ -1,16 +1,25 @@
 'use client'
 
+import { cn } from '@heroui/react'
 import { Tabs, Tab } from '@heroui/tabs'
-import { CodeXml, PencilRuler, Sparkles } from 'lucide-react'
+import { CodeXml, Layers, PencilRuler, Sparkles } from 'lucide-react'
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-const Nav = () => {
+interface iNavProps {
+  className?: string
+}
+
+const Nav = ({ className }: iNavProps) => {
   const pathname = usePathname();
   const router = useRouter();
   const [selected, setSelected] = useState('/')
 
   useEffect(() => {
+    if (pathname.includes('/kits')) {
+      setSelected('/kits')
+      return;
+    }
     setSelected(pathname)
   }, [pathname])
 
@@ -19,7 +28,7 @@ const Nav = () => {
   }
 
   return (
-    <div className='my-8 flex justify-center items-center'>
+    <div className={cn('my-8 flex justify-center items-center', className)}>
       <Tabs radius='full' selectedKey={selected} onSelectionChange={onChange} variant='bordered' color='default'>
         <Tab
           key="/"
@@ -45,6 +54,15 @@ const Nav = () => {
             <div className="flex items-center space-x-2">
               <Sparkles size={18} />
               <span>AiHub</span>
+            </div>
+          }
+        />
+        <Tab
+          key="/archives"
+          title={
+            <div className="flex items-center space-x-2">
+              <Layers size={18} />
+              <span>Archives</span>
             </div>
           }
         />
