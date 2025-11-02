@@ -1,11 +1,12 @@
 'use client'
 
-import { addToast, Button, cn, Progress, Snippet } from '@heroui/react';
+import { Button, cn, Progress, Snippet } from '@heroui/react';
 import { CloudUpload, FileArchive, Upload } from 'lucide-react';
 import { useState, DragEvent, useRef, ChangeEvent, Fragment } from 'react';
-import { ByteFileSize, isFileSizeExceeded } from '../utils/size';
-import { CheckInUpload } from '../core/github-actoins';
-import { DLDOMAIN } from '../constant/config';
+import { ByteFileSize, isFileSizeExceeded } from '../../utils/size';
+import { CheckInUpload } from '../../core/github-actoins';
+import { DLDOMAIN } from '../../constant/config';
+import toast from 'react-hot-toast';
 
 const FileUploadBox = () => {
   const [isDragging, setIsDragging] = useState(false);
@@ -38,12 +39,7 @@ const FileUploadBox = () => {
 
     const droppedFiles = Array.from(e.dataTransfer.files);
     if (isFileSizeExceeded(droppedFiles[0])) {
-      addToast({
-        title: "Rejected",
-        description: "File size exceeds 25MB limit.",
-        variant: 'flat',
-        color: "danger",
-      })
+      toast.error("File size exceeds 5MB limit.");
       return;
     }
 
@@ -54,12 +50,7 @@ const FileUploadBox = () => {
     if (e.target.files) {
       const selectedFiles = Array.from(e.target.files);
       if (isFileSizeExceeded(selectedFiles[0])) {
-        addToast({
-          title: "Rejected",
-          description: "File size exceeds 25MB limit.",
-          variant: 'flat',
-          color: "danger",
-        })
+        toast.error("File size exceeds 5MB limit.");
         return;
       }
 
@@ -75,12 +66,7 @@ const FileUploadBox = () => {
     setDLink(false)
     if (!ReadyFile) { return; }
     if (isFileSizeExceeded(ReadyFile)) {
-      addToast({
-        title: "Rejected",
-        description: "File size exceeds 25MB limit.",
-        variant: 'flat',
-        color: "danger",
-      })
+      toast.error("File size exceeds 5MB limit.");
       setProcessing(false);
       setReadyFile(false);
       return;
@@ -91,23 +77,13 @@ const FileUploadBox = () => {
     setProcessing(false);
     setReadyFile(false);
     if (!response) {
-      addToast({
-        title: "Connection Error",
-        description: "Try again",
-        variant: 'flat',
-        color: "warning",
-      })
+      toast.error("Connection error! try again");
       setProcessing(false);
       setReadyFile(false);
       return;
     }
     setDLink(response.link)
-    addToast({
-      title: "Success",
-      description: "Link valid for 30 days.",
-      variant: 'flat',
-      color: "success",
-    })
+    toast.success("Link valid for 30 days!");
   }
 
   return (
