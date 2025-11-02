@@ -1,4 +1,4 @@
-import { Fira_Code, Pacifico, Roboto } from "next/font/google";
+import { Fira_Code, Pacifico, Rajdhani, Roboto } from "next/font/google";
 
 export const FontRoboto = Roboto({
   variable: "--font-roboto",
@@ -13,6 +13,12 @@ export const pacifico = Pacifico({
 
 export const firaCode = Fira_Code({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-fira-code",
+})
+
+export const rajdhani = Rajdhani({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-rajdhani",
 })
