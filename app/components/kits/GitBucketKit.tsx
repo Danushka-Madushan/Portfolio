@@ -8,7 +8,7 @@ import { CheckInUpload } from '../../core/github-actoins';
 import { DLDOMAIN } from '../../constant/config';
 import toast from 'react-hot-toast';
 
-const FileUploadBox = () => {
+const GitBucketKit = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [dLink, setDLink] = useState<false | string>(false);
   const [ReadyFile, setReadyFile] = useState<File | false>(false);
@@ -173,4 +173,4 @@ const FileUploadBox = () => {
   )
 }
 
-export default FileUploadBox
+export default GitBucketKit
