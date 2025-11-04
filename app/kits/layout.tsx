@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Providers } from './Providers';
-import { FontRoboto } from './fonts/fonts';
-import "./styles/index.css";
-import { Toaster } from 'react-hot-toast';
-import MouseMoveEffect from './components/MouseMoveEffect';
-import Nav from './components/Nav';
-import BackgroundGrid from './components/BackgroundGrid';
+import { Providers } from '../Providers';
+import { FontRoboto } from '../fonts/fonts';
+import "../styles/index.css";
+import MouseMoveEffect from '../components/MouseMoveEffect';
+import Nav from '../components/navs/Nav';
+import BackgroundGrid from '../components/BackgroundGrid';
+import KitNav from '../components/navs/KitNav';
 
 export const metadata: Metadata = {
   title: "Danushka-Madushan",
@@ -34,13 +34,18 @@ export default function RootLayout({
             </div>
             {/* MotionGrid */}
             <BackgroundGrid />
-            <div>
+            <div className='h-screen'>
               {/* NavBar */}
-              <Nav />
-              {children}
+              <Nav className='fixed right-1/2 left-1/2 z-20' />
+              <KitNav />
+              <div className='relative flex items-center w-full h-full justify-center'>
+                <div className='w-[310px]'>
+                  {/* Space Adjuster (cuz i don't know css) */}
+                </div>
+                {children}
+              </div>
             </div>
           </div>
-          <Toaster position='bottom-center' />
         </Providers>
       </body>
     </html>
