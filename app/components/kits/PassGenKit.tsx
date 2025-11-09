@@ -99,7 +99,7 @@ const PassGenKit = () => {
         {/* Checkboxes Section */}
         <div className={`${firaCode.className} font-light w-[80%]`}>
           <h1 className='pb-2 text-gray-400 text-sm'>Combination Options</h1>
-          <div className='flex flex-row items-start gap-y-2 justify-between pr-8'>
+          <div className='flex flex-row items-start gap-y-2 gap-x-18 justify-start'>
             {/* Split checkboxes into two columns */}
             {[0, 1].map(colIndex => (
               <div key={colIndex} className='flex justify-center flex-col gap-y-3'>
