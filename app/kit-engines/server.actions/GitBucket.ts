@@ -6,7 +6,7 @@ import { Octokit } from '@octokit/core'
 import { unlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { getSignedLink } from './xhr'
+import { getSignedLink } from '../../core/xhr'
 
 const octokit = new Octokit({
   auth: ENV.GITBUCKET_REPO_ACCESS_TOKEN,
