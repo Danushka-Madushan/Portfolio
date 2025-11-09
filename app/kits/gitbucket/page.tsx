@@ -1,6 +1,6 @@
+import KitPageWrapper from '@/app/components/KitPageWrapper';
 import GitBucketKit from '@/app/components/kits/GitBucketKit';
 
-import { Card } from '@heroui/card';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -13,14 +13,7 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <div className='flex w-full flex-col items-center justify-center'>
-      <Card
-        classNames={{
-          base: 'bg-[#02060c] border border-gray-100/20'
-        }} className='rounded-lg flex items-start transition-all justify-center min-h-80 w-[580px]'>
-        <GitBucketKit />
-      </Card>
-    </div>
+    <KitPageWrapper className='transition-all' content={<GitBucketKit/>} />
   )
 }
 
