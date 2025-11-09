@@ -1,6 +1,8 @@
 export const GITHUB_AVATAR_URL = "https://avatars.githubusercontent.com/u/69332746?v=4";
 
-export const userAgent = 'dmtools/v1.0'
+export const vKit = '1.0'
+
+export const userAgent = `dmtools/v${vKit}`
 
 export const DOMAIN = 'danushka.zenthos.dev'
 
