@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@heroui/react'
+import { cn } from '@/app/utils/utils'
 import { Tabs, Tab } from '@heroui/tabs'
 import { CodeXml, Layers, PencilRuler, Sparkles } from 'lucide-react'
 import { usePathname, useRouter } from 'next/navigation'
