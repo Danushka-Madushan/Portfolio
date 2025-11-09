@@ -1,7 +1,7 @@
 'use client'
 
 import { firaCode, jetBransMono } from '@/app/fonts/fonts'
-import { SSHKeygen } from '@/app/kit-engines/server.actions/SSHKeygen';
+import { generateECDSAKeys, generateEd25519Keys, generateRSAKeys } from '@/app/kit-engines/server.actions/SSHKeygen';
 import { copyToClipboard } from '@/app/utils/clip';
 import { Button, Input, Textarea, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@heroui/react'
 import { Braces, Copy, FileArchive } from 'lucide-react';
@@ -99,11 +99,11 @@ const SSHKit = () => {
 
       switch (selectedAlgo) {
         case 'Ed25519': {
-          result = await SSHKeygen.generateEd25519Keys({ comment: effectiveComment, passphrase });
+          result = await generateEd25519Keys({ comment: effectiveComment, passphrase });
           break;
         }
         case 'RSA': {
-          result = await SSHKeygen.generateRSAKeys({
+          result = await generateRSAKeys({
             bitLength: selectedBitLength,
             comment: effectiveComment,
             passphrase
@@ -111,7 +111,7 @@ const SSHKit = () => {
           break;
         }
         case 'ECDSA': {
-          result = await SSHKeygen.generateECDSAKeys({
+          result = await generateECDSAKeys({
             curve: selectedECDSACurve,
             comment: effectiveComment,
             passphrase
