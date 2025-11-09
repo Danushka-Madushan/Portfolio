@@ -1,5 +1,5 @@
-import { cn } from '@heroui/react'
 import { pacifico } from '../fonts/fonts'
+import { cn } from '../utils/utils'
 import AvatarImage from './AvatarImage'
 
 export default function Hero() {
