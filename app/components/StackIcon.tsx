@@ -9,14 +9,14 @@ interface StackIconProps {
 }
 
 const StackIcon = ({ icon, tipString }: StackIconProps) => {
-  const ICON_SIZE = 18;
+  const ICON_SIZE = 17;
 
   return (
     <Tooltip content={tipString}>
       <Card
-        className={`w-${ICON_SIZE} h-${ICON_SIZE}`}
         classNames={{
-          base: 'rounded-full bg-[#02060c] border border-gray-100/20',
+          /* Height and Width must be same as ICON_SIZE */
+          base: `w-17 h-17 rounded-full bg-[#02060c] border border-gray-100/20`,
           body: 'flex items-center justify-center',
         }}
       >
