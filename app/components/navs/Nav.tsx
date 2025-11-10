@@ -1,5 +1,6 @@
 'use client'
 
+import { jetBransMono } from '@/app/fonts/fonts'
 import { cn } from '@/app/utils/utils'
 import { Tabs, Tab } from '@heroui/tabs'
 import { CodeXml, Layers, PencilRuler, Sparkles } from 'lucide-react'
@@ -28,7 +29,7 @@ const Nav = ({ className }: iNavProps) => {
   }
 
   return (
-    <div className={cn('my-8 flex justify-center items-center', className)}>
+    <div className={cn(`my-8 flex justify-center items-center ${jetBransMono.className}`, className)}>
       <Tabs radius='full' selectedKey={selected} onSelectionChange={onChange} variant='bordered' color='default'>
         <Tab
           key="/"
