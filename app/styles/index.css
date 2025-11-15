@@ -22,3 +22,7 @@
 .kitnav-scroll::-webkit-scrollbar-thumb:hover {
   @apply bg-blue-700; /* Hover state for the thumb */
 }
+
+#RemoveHRSeparator hr {
+  display: none;
+}
