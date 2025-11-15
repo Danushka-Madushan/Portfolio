@@ -166,6 +166,8 @@ const B64Kit = () => {
           </Button>
         </div>
         <CodeBlock
+          DefaultSelection='ts'
+          snippetTitle='Base64 Encode/Decode'
           JsCodeStringServer={JS_CODE_SNIPPET_SERVER}
           TsCodeStringServer={TS_CODE_SNIPPET_SERVER}
           JsCodeStringWeb={JS_CODE_SNIPPET_WEB}
