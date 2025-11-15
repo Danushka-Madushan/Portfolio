@@ -17,20 +17,27 @@ import { Check, Copy } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { copyToClipboard } from '../utils/clip';
 
+type iLang = 'ts' | 'js' | 'cs' | 'jv' | 'py' | 'go'
+type iRuntime = 'server' | 'web'
+
 interface CodeBlockProps {
+  snippetTitle: string;
   isOpen: boolean;
   onOpenChange: () => void;
-  JsCodeStringWeb: string;
-  TsCodeStringWeb: string;
-  JsCodeStringServer: string;
+  DefaultSelection: iLang
+  JsCodeStringServer?: string;
   TsCodeStringServer: string;
-  CSCodeString: string;
-  JavaCodeString: string;
-  PyCodeString: string;
-  GoCodeString: string;
+  JsCodeStringWeb?: string;
+  TsCodeStringWeb?: string;
+  CSCodeString?: string;
+  JavaCodeString?: string;
+  PyCodeString?: string;
+  GoCodeString?: string;
 }
 
 const CodeBlock = ({
+  DefaultSelection,
+  snippetTitle,
   JsCodeStringWeb,
   TsCodeStringWeb,
   JsCodeStringServer,
@@ -43,11 +50,9 @@ const CodeBlock = ({
   onOpenChange
 }: CodeBlockProps) => {
   const [isCopied, setIsCopied] = useState(false);
-  const [codeString, setCodeString] = useState(TsCodeStringWeb);
-  const [selectedLang, setSelectedLang] = useState<iLang>('js');
-  const [selectedRuntime, setSelectedRuntime] = useState<iRuntime>('web');
-  type iLang = 'ts' | 'js' | 'cs' | 'jv' | 'py' | 'go'
-  type iRuntime = 'server' | 'web'
+  const [codeString, setCodeString] = useState(TsCodeStringServer);
+  const [selectedLang, setSelectedLang] = useState<iLang>(DefaultSelection);
+  const [selectedRuntime, setSelectedRuntime] = useState<iRuntime>('server');
 
   const LANGS: Record<iLang, string> = {
     'js': 'javascript',
@@ -71,10 +76,14 @@ const CodeBlock = ({
     switch (selectedLang) {
       case 'js': {
         if (selectedRuntime === 'server') {
-          setCodeString(JsCodeStringServer);
+          if (JsCodeStringServer) {
+            setCodeString(JsCodeStringServer);
+          }
           break;
         }
-        setCodeString(JsCodeStringWeb);
+        if (JsCodeStringWeb) {
+          setCodeString(JsCodeStringWeb);
+        }
         break;
       }
       case 'ts': {
@@ -82,23 +91,33 @@ const CodeBlock = ({
           setCodeString(TsCodeStringServer);
           break;
         }
-        setCodeString(TsCodeStringWeb);
+        if (TsCodeStringWeb) {
+          setCodeString(TsCodeStringWeb);
+        }
         break;
       }
       case 'cs': {
-        setCodeString(CSCodeString)
+        if (CSCodeString) {
+          setCodeString(CSCodeString)
+        }
         break;
       }
       case 'jv': {
-        setCodeString(JavaCodeString);
+        if (JavaCodeString) {
+          setCodeString(JavaCodeString)
+        }
         break;
       }
       case 'py': {
-        setCodeString(PyCodeString);
+        if (PyCodeString) {
+          setCodeString(PyCodeString)
+        }
         break;
       }
       case 'go': {
-        setCodeString(GoCodeString)
+        if (GoCodeString) {
+          setCodeString(GoCodeString)
+        }
         break;
       }
     }
@@ -123,7 +142,7 @@ const CodeBlock = ({
       <ModalContent>
         {() => (
           <>
-            <ModalHeader className={`${firaCode.className} text-sm justify-center font-light`}>Code Snippet - Base64 Encode/Decode</ModalHeader>
+            <ModalHeader className={`${firaCode.className} text-sm justify-center font-light`}>Code Snippet - {snippetTitle}</ModalHeader>
             <ModalBody>
               <SyntaxHighlighter showLineNumbers language={LANGS[selectedLang]} style={oneDark} customStyle={{
                 fontSize: 13.5,
@@ -145,7 +164,7 @@ const CodeBlock = ({
                 onSelectionChange={(value) => setSelectedRuntime(String(value) as iRuntime)}
                 selectedKey={selectedRuntime}
                 classNames={{
-                  tabContent:`${firaCode.className} text-sm font-light`
+                  tabContent: `${firaCode.className} text-sm font-light`
                 }}
               >
                 <Tab
@@ -159,27 +178,51 @@ const CodeBlock = ({
                 onSelectionChange={(value) => setSelectedLang(String(value) as iLang)}
                 selectedKey={selectedLang}
                 classNames={{
-                  tabContent:`${firaCode.className} text-sm font-light`
+                  tabContent: `${firaCode.className} text-sm font-light`
                 }}
               >
-                <Tab
-                  key="js" title="JS"
-                />
-                <Tab
-                  key="ts" title="TS"
-                />
-                <Tab
-                  key="py" title="Python"
-                />
-                <Tab
-                  key="cs" title="C#"
-                />
-                <Tab
-                  key="jv" title="Java"
-                />
-                <Tab
-                  key="go" title="Go"
-                />
+                {
+                  (JsCodeStringServer || JsCodeStringWeb) && (
+                    <Tab
+                      key="js" title="JS"
+                    />
+                  )
+                }
+                {
+                  (TsCodeStringServer || TsCodeStringWeb) && (
+                    <Tab
+                      key="ts" title="TS"
+                    />
+                  )
+                }
+                {
+                  (PyCodeString) && (
+                    <Tab
+                      key="py" title="Python"
+                    />
+                  )
+                }
+                {
+                  (CSCodeString) && (
+                    <Tab
+                      key="cs" title="C#"
+                    />
+                  )
+                }
+                {
+                  (JavaCodeString) && (
+                    <Tab
+                      key="jv" title="Java"
+                    />
+                  )
+                }
+                {
+                  (GoCodeString) && (
+                    <Tab
+                      key="go" title="Go"
+                    />
+                  )
+                }
               </Tabs>
             </ModalFooter>
           </>
