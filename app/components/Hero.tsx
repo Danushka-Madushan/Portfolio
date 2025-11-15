@@ -18,7 +18,7 @@ export default function Hero() {
           </span>
         </span>
         <h1 className="bg-linear-to-br from-foreground from-30% via-foreground/90 to-foreground/70 bg-clip-text text-2xl md:text-4xl leading-7 font-thin tracking-tight text-transparent">
-          Software Engineer Jr. (Backend & Security)
+          Software Engineer Jr. (DevOps & Security)
           <br />
           <span className='text-xl md:text-2xl'>
             Undergraduate
