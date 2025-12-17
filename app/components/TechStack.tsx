@@ -14,7 +14,8 @@ const TechStack = () => {
     { icon: 'DeviconCloudflareworkers', tipString: 'Cloudflare Workers' },
     { icon: 'OpenmojiPinata', tipString: 'Pinata' },
     { icon: 'SkillIconsGithubactionsLight', tipString: 'GitHub Actions' },
-    { icon: 'SkillIconsCmakeDark', tipString: 'CMake' }
+    { icon: 'SkillIconsCmakeDark', tipString: 'CMake' },
+    { icon: 'LogosHostinger', tipString: 'Hostinger' }
   ]
 
   const FRAMEWORK_STACK: StackList = [
@@ -27,6 +28,7 @@ const TechStack = () => {
     { icon: 'LogosCloudinaryIcon', tipString: 'Cloudinary' },
     { icon: 'VscodeIconsFileTypeDocker2', tipString: 'Docker' },
     { icon: 'DeviconRailway', tipString: 'Railway' },
+    { icon: 'LogosNginx', tipString: 'Nginx' }
   ]
 
   const LANG_STACK: StackList = [
@@ -38,6 +40,7 @@ const TechStack = () => {
     { icon: 'VscodeIconsFileTypeGit', tipString: 'Git' },
     { icon: 'SimpleIconsGithub', tipString: 'GitHub' },
     { icon: 'DeviconCloudflare', tipString: 'Cloudflare' },
+    { icon: 'LogosBunnyNetIcon', tipString: 'Bunny Net' }
   ]
 
   return (
