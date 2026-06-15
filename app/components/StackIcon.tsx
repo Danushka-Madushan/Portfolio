@@ -1,4 +1,3 @@
-import { Card, CardBody } from '@heroui/card'
 import { Image } from '@heroui/image';
 import { Tooltip } from '@heroui/tooltip';
 import NextImage from 'next/image';
@@ -13,25 +12,19 @@ const StackIcon = ({ icon, tipString }: StackIconProps) => {
 
   return (
     <Tooltip content={tipString}>
-      <Card
-        classNames={{
-          /* Height and Width must be same as ICON_SIZE */
-          base: `w-17 h-17 rounded-full bg-[#02060c] border border-gray-100/20`,
-          body: 'flex items-center justify-center',
-        }}
+      <button
+        type="button"
+        aria-label={tipString}
+        className={`inline-flex items-center justify-center w-17 h-17 rounded-full bg-[#02060c] border border-gray-100/20`}
       >
-        <CardBody>
-          <div className='flex items-center justify-center'>
-            <Image
-              alt={icon}
-              as={NextImage}
-              height={ICON_SIZE * 2}
-              src={`/SkillIcons/${icon}.svg`}
-              width={ICON_SIZE * 2}
-            />
-          </div>
-        </CardBody>
-      </Card>
+        <Image
+          alt={icon}
+          as={NextImage}
+          height={ICON_SIZE * 2}
+          src={`/SkillIcons/${icon}.svg`}
+          width={ICON_SIZE * 2}
+        />
+      </button>
     </Tooltip>
   )
 }

@@ -40,7 +40,7 @@ const Nav = ({ className }: iNavProps) => {
             </div>
           }
         />
-        <Tab
+        {/* <Tab
           key="/kits"
           title={
             <div className="flex items-center space-x-2">
@@ -66,7 +66,7 @@ const Nav = ({ className }: iNavProps) => {
               <span>Archives</span>
             </div>
           }
-        />
+        /> */}
       </Tabs>
     </div>
   )

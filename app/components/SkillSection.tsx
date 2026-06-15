@@ -38,12 +38,11 @@ const SkillSection = () => {
 
   return (
     <div className='mt-5 mx-8'>
-      <div className='flex flex-wrap gap-8 justify-center max-w-[1300px]'>
+      <div className='flex flex-wrap gap-8 justify-center max-w-325'>
         {
           CaseContent.map((item, index) => {
             return (
               <Card
-                isPressable
                 disableRipple
                 key={index}
                 className='w-96'
