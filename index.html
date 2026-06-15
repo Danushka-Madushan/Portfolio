@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Danushka Madushan — Software Engineer</title>
+  <meta name="description" content="Software Engineer specialising in backend development, API design, web scraping, and cloud infrastructure." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #F5F3EE;
+      --surface:    #FFFFFF;
+      --ink:        #0D0D0D;
+      --ink2:       #3A3A3A;
+      --muted:      #888580;
+      --subtle:     #C8C5BC;
+      --rule:       #E0DDD6;
+      --accent:     #0047D8;
+      --accent-bg:  #EEF3FF;
+      --accent-text:#003BB5;
+      --f-display:  'Fraunces', Georgia, serif;
+      --f-sans:     'DM Sans', system-ui, sans-serif;
+      --f-mono:     'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--f-sans);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 2px; }
+
+    /* ────────── NAV ────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(245,243,238,0.88);
+      backdrop-filter: saturate(180%) blur(16px);
+      -webkit-backdrop-filter: saturate(180%) blur(16px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 40px;
+      height: 62px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: var(--f-display);
+      font-size: 16px; font-weight: 600;
+      font-variation-settings: 'opsz' 20;
+      color: var(--ink); text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a {
+      font-size: 13px; font-weight: 400; color: var(--muted);
+      text-decoration: none; letter-spacing: 0.01em;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      font-size: 13px !important; font-weight: 500 !important;
+      color: var(--accent) !important;
+      border: 1px solid var(--accent) !important;
+      padding: 6px 15px; border-radius: 4px;
+      transition: background 0.15s, color 0.15s !important;
+    }
+    .nav-cta:hover { background: var(--accent) !important; color: #fff !important; }
+
+    /* ────────── LAYOUT ─────────────── */
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+    /* ────────── HERO ───────────────── */
+    .hero { padding: 144px 0 80px; }
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 30px;
+    }
+    .hero-kicker::before {
+      content: ''; display: inline-block;
+      width: 24px; height: 1px; background: var(--subtle);
+    }
+    .hero-name {
+      font-family: var(--f-display);
+      font-size: clamp(66px, 10.5vw, 116px);
+      font-weight: 700; line-height: 0.9;
+      letter-spacing: -0.04em; color: var(--ink);
+      font-variation-settings: 'opsz' 144;
+    }
+    .hero-name-italic {
+      font-style: italic; font-weight: 300;
+      color: var(--ink2);
+      font-variation-settings: 'opsz' 144;
+    }
+    .hero-row {
+      margin-top: 40px; display: flex;
+      align-items: flex-end; gap: 60px; flex-wrap: wrap;
+    }
+    .hero-desc {
+      font-size: 16px; font-weight: 300;
+      color: var(--ink2); line-height: 1.6;
+      max-width: 380px;
+    }
+    .hero-desc strong { font-weight: 500; color: var(--ink); }
+    .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--f-sans); font-size: 13px; font-weight: 500;
+      padding: 10px 22px; border-radius: 5px;
+      text-decoration: none; border: 1px solid transparent;
+      transition: all 0.15s; letter-spacing: 0.01em; white-space: nowrap;
+    }
+    .btn-dark { background: var(--ink); color: #fff; }
+    .btn-dark:hover { background: var(--ink2); }
+    .btn-outline { border-color: var(--rule); color: var(--ink2); background: var(--surface); }
+    .btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+
+    /* ────────── RULE ───────────────── */
+    .hr { border: none; border-top: 1px solid var(--rule); }
+
+    /* ────────── SECTION HEADER ─────── */
+    section { padding: 80px 0; }
+    .sec-head {
+      display: flex; align-items: baseline; gap: 18px; margin-bottom: 52px;
+    }
+    .sec-num {
+      font-family: var(--f-mono);
+      font-size: 11px; font-weight: 500;
+      color: var(--accent); letter-spacing: 0.05em; flex-shrink: 0;
+    }
+    h2 {
+      font-family: var(--f-display);
+      font-size: clamp(28px, 3.8vw, 44px); font-weight: 600;
+      letter-spacing: -0.03em; color: var(--ink);
+      font-variation-settings: 'opsz' 72;
+    }
+    h2 em { font-style: italic; font-weight: 300; color: var(--muted); }
+
+    /* ────────── CODE BLOCK ─────────── */
+    .code-box {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 8px; overflow: hidden;
+    }
+    .code-bar {
+      background: var(--bg); border-bottom: 1px solid var(--rule);
+      padding: 10px 16px; display: flex; align-items: center; gap: 6px;
+    }
+    .dot { width: 9px; height: 9px; border-radius: 50%; }
+    .dot-r { background: #EC695C; } .dot-y { background: #F4BE50; } .dot-g { background: #61C454; }
+    .code-fname { margin-left: 10px; font-family: var(--f-mono); font-size: 11px; color: var(--muted); }
+    .code-body {
+      padding: 24px 28px; font-family: var(--f-mono);
+      font-size: 13px; line-height: 1.9; overflow-x: auto;
+    }
+    .code-body pre { margin: 0; }
+    .kw   { color: #7C4DFF; }
+    .fn   { color: #1565C0; }
+    .str  { color: #1B7A40; }
+    .prop { color: #B5480A; }
+    .brk  { color: #555; }
+    .arr  { color: #888; }
+
+    /* ────────── ABOUT CARDS ────────── */
+    .about-cards {
+      margin-top: 24px;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--rule);
+      border: 1px solid var(--rule); border-radius: 8px; overflow: hidden;
+    }
+    .about-card { background: var(--surface); padding: 24px; }
+    .ac-num { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 12px; }
+    .about-card h4 { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
+    .about-card p { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.55; }
+
+    /* ────────── SKILLS ─────────────── */
+    .skill-row {
+      display: grid; grid-template-columns: 180px 1fr;
+      align-items: start; gap: 0;
+      padding: 22px 0; border-top: 1px solid var(--rule);
+    }
+    .skill-row:last-child { border-bottom: 1px solid var(--rule); }
+    .sk-cat {
+      font-size: 11px; font-weight: 500; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--muted); padding-top: 5px;
+    }
+    .sk-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 13px; font-weight: 400; color: var(--ink2);
+      background: var(--surface); border: 1px solid var(--rule);
+      padding: 5px 12px; border-radius: 4px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .pill:hover { border-color: var(--ink); color: var(--ink); }
+    .pill-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .pill-badge {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.04em;
+      color: var(--accent-text); background: var(--accent-bg);
+      padding: 2px 6px; border-radius: 3px;
+    }
+
+    /* ────────── FOCUS ──────────────── */
+    .focus-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--rule);
+      border: 1px solid var(--rule); border-radius: 8px; overflow: hidden;
+    }
+    .focus-card {
+      background: var(--surface); padding: 32px;
+      transition: background 0.15s;
+    }
+    .focus-card:hover { background: var(--accent-bg); }
+    .fc-n { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 16px; display: block; }
+    .focus-card h3 {
+      font-size: 15px; font-weight: 500; color: var(--ink);
+      margin-bottom: 10px; letter-spacing: -0.01em;
+    }
+    .focus-card p { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.6; }
+
+    /* ────────── CONTACT ────────────── */
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .cc {
+      background: var(--surface); border: 1px solid var(--rule);
+      border-radius: 8px; padding: 28px;
+      text-decoration: none; display: block;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      position: relative;
+    }
+    .cc:hover { border-color: var(--ink); box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    .cc-label {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+    }
+    .cc-title { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+    .cc-sub { font-size: 13px; font-weight: 300; color: var(--muted); }
+    .cc-arrow {
+      position: absolute; top: 28px; right: 28px;
+      font-size: 16px; color: var(--rule);
+      transition: color 0.15s, transform 0.15s;
+    }
+    .cc:hover .cc-arrow { color: var(--ink); transform: translate(2px,-2px); }
+
+    /* ────────── FOOTER ─────────────── */
+    footer { border-top: 1px solid var(--rule); padding: 32px 0; }
+    .footer-row {
+      display: flex; justify-content: space-between;
+      align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .footer-row span, .footer-row a {
+      font-size: 12px; font-weight: 300;
+      color: var(--muted); text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-row a:hover { color: var(--ink); }
+    .footer-links { display: flex; gap: 20px; }
+
+    /* ────────── REVEAL ─────────────── */
+    .rv {
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .rv.in { opacity: 1; transform: none; }
+
+    /* ────────── RESPONSIVE ─────────── */
+    @media (max-width: 800px) {
+      .wrap { padding: 0 20px; }
+      .nav-inner { padding: 0 20px; }
+      .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+      .hero { padding: 110px 0 60px; }
+      .hero-row { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .about-cards { grid-template-columns: 1fr 1fr; }
+      .focus-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .skill-row { grid-template-columns: 1fr; gap: 10px; }
+    }
+    @media (max-width: 520px) {
+      .about-cards { grid-template-columns: 1fr; }
+      .focus-grid { grid-template-columns: 1fr; }
+      .hero-name { font-size: 56px; }
+      .nav-links li:not(:last-child) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ─────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="#">Danushka Madushan</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#focus">Focus</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="nav-cta" href="https://github.com/Danushka-Madushan" target="_blank">GitHub ↗</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────── -->
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-kicker">Software Engineer · Backend &amp; Security</div>
+    <h1 class="hero-name">
+      Danushka<br>
+      <span class="hero-name-italic">Madushan</span>
+    </h1>
+    <div class="hero-row">
+      <p class="hero-desc">
+        Building <strong>scalable APIs</strong>, cloud infrastructure,
+        and automation systems.<br><br>
+        Pursuing an HND in Software Engineering
+        at <strong>NIBM</strong>, Colombo.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-dark" href="mailto:Disnakamadushan66@gmail.com">Email me</a>
+        <a class="btn btn-outline" href="https://danushka.zenthos.dev/" target="_blank">Portfolio ↗</a>
+        <a class="btn btn-outline" href="https://github.com/Danushka-Madushan" target="_blank">GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="hr">
+
+<!-- ── ABOUT ─────────────────────────────────────── -->
+<div class="wrap">
+  <section id="about">
+    <div class="sec-head rv">
+      <span class="sec-num">01</span>
+      <h2>About <em>me</em></h2>
+    </div>
+
+    <div class="code-box rv">
+      <div class="code-bar">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <span class="code-fname">danushka.ts</span>
+      </div>
+      <div class="code-body"><pre
+><span class="kw">const</span> <span class="fn">danushka</span><span class="brk">:</span> Developer <span class="brk">= {</span>
+  <span class="prop">role</span><span class="brk">:</span>      <span class="str">"Software Engineer Jr. — Backend &amp; Security"</span><span class="brk">,</span>
+  <span class="prop">education</span><span class="brk">:</span> <span class="str">"HND in Software Engineering @ NIBM"</span><span class="brk">,</span>
+  <span class="prop">focus</span><span class="brk">:</span>     <span class="arr">[</span><span class="str">"API Development"</span><span class="brk">,</span> <span class="str">"Web Scraping"</span><span class="brk">,</span> <span class="str">"Automation"</span><span class="brk">,</span> <span class="str">"Cloud"</span><span class="arr">]</span><span class="brk">,</span>
+  <span class="prop">interests</span><span class="brk">:</span> <span class="arr">[</span><span class="str">"Cybersecurity"</span><span class="brk">,</span> <span class="str">"Reverse Engineering"</span><span class="brk">,</span> <span class="str">"Web Technologies"</span><span class="arr">]</span><span class="brk">,</span>
+  <span class="prop">learning</span><span class="brk">:</span>  <span class="arr">[</span><span class="str">"C++"</span><span class="brk">,</span> <span class="str">"C#"</span><span class="brk">,</span> <span class="str">"Kotlin"</span><span class="brk">,</span> <span class="str">"Supabase"</span><span class="arr">]</span><span class="brk">,</span>
+  <span class="prop">contact</span><span class="brk">:</span>   <span class="str">"Disnakamadushan66@gmail.com"</span><span class="brk">,</span>
+  <span class="prop">fun_fact</span><span class="brk">:</span>  <span class="str">"Cat person 🐱"</span><span class="brk">,</span>
+<span class="brk">};</span></pre></div>
+    </div>
+
+    <div class="about-cards rv">
+      <div class="about-card">
+        <div class="ac-num">01</div>
+        <h4>Education</h4>
+        <p>HND in Software Engineering at NIBM. Studying CS, programming languages, and cybersecurity.</p>
+      </div>
+      <div class="about-card">
+        <div class="ac-num">02</div>
+        <h4>Security</h4>
+        <p>Applying reverse engineering to ensure system integrity across web and backend applications.</p>
+      </div>
+      <div class="about-card">
+        <div class="ac-num">03</div>
+        <h4>Backend</h4>
+        <p>Building REST and WebSocket APIs with clean, well-documented interfaces for web and mobile.</p>
+      </div>
+      <div class="about-card">
+        <div class="ac-num">04</div>
+        <h4>Cloud</h4>
+        <p>Deploying high-performance applications on edge platforms including Cloudflare Workers.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr class="hr">
+
+<!-- ── SKILLS ─────────────────────────────────────── -->
+<div class="wrap">
+  <section id="skills">
+    <div class="sec-head rv">
+      <span class="sec-num">02</span>
+      <h2>Tech <em>stack</em></h2>
+    </div>
+
+    <div class="rv">
+      <div class="skill-row">
+        <span class="sk-cat">Languages</span>
+        <div class="sk-pills">
+          <span class="pill"><span class="pill-dot" style="background:#3178c6"></span>TypeScript</span>
+          <span class="pill"><span class="pill-dot" style="background:#c9aa00"></span>JavaScript</span>
+          <span class="pill"><span class="pill-dot" style="background:#3776ab"></span>Python</span>
+          <span class="pill"><span class="pill-dot" style="background:#2c2d72"></span>Lua</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="sk-cat">Runtime &amp; Backend</span>
+        <div class="sk-pills">
+          <span class="pill"><span class="pill-dot" style="background:#339933"></span>Node.js</span>
+          <span class="pill"><span class="pill-dot" style="background:#b8924d"></span>Bun</span>
+          <span class="pill"><span class="pill-dot" style="background:#888"></span>Express</span>
+          <span class="pill"><span class="pill-dot" style="background:#2d3748"></span>Prisma</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="sk-cat">Frontend &amp; UI</span>
+        <div class="sk-pills">
+          <span class="pill"><span class="pill-dot" style="background:#0ea5cf"></span>React</span>
+          <span class="pill"><span class="pill-dot" style="background:#555"></span>Next.js</span>
+          <span class="pill"><span class="pill-dot" style="background:#06b6d4"></span>Tailwind CSS</span>
+          <span class="pill"><span class="pill-dot" style="background:#f24e1e"></span>Figma</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="sk-cat">Databases</span>
+        <div class="sk-pills">
+          <span class="pill"><span class="pill-dot" style="background:#47a248"></span>MongoDB</span>
+          <span class="pill"><span class="pill-dot" style="background:#4479a1"></span>MySQL</span>
+          <span class="pill"><span class="pill-dot" style="background:#003b57"></span>SQLite</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="sk-cat">Cloud &amp; DevOps</span>
+        <div class="sk-pills">
+          <span class="pill"><span class="pill-dot" style="background:#f38020"></span>Cloudflare Workers</span>
+          <span class="pill"><span class="pill-dot" style="background:#2496ed"></span>Docker</span>
+          <span class="pill"><span class="pill-dot" style="background:#e8a000"></span>Firebase</span>
+          <span class="pill"><span class="pill-dot" style="background:#555"></span>Vercel</span>
+          <span class="pill"><span class="pill-dot" style="background:#555"></span>Railway</span>
+          <span class="pill"><span class="pill-dot" style="background:#3448c5"></span>Cloudinary</span>
+          <span class="pill"><span class="pill-dot" style="background:#2088ff"></span>GitHub Actions</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="sk-cat">Learning</span>
+        <div class="sk-pills">
+          <span class="pill"><span class="pill-dot" style="background:#00599c"></span>C++ <span class="pill-badge">new</span></span>
+          <span class="pill"><span class="pill-dot" style="background:#027502"></span>C# <span class="pill-badge">new</span></span>
+          <span class="pill"><span class="pill-dot" style="background:#ed8b00"></span>Java <span class="pill-badge">new</span></span>
+          <span class="pill"><span class="pill-dot" style="background:#7F52FF"></span>Kotlin <span class="pill-badge">new</span></span>
+          <span class="pill"><span class="pill-dot" style="background:#3ecf8e"></span>Supabase <span class="pill-badge">new</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr class="hr">
+
+<!-- ── FOCUS ──────────────────────────────────────── -->
+<div class="wrap">
+  <section id="focus">
+    <div class="sec-head rv">
+      <span class="sec-num">03</span>
+      <h2>What I <em>build</em></h2>
+    </div>
+
+    <div class="focus-grid rv">
+      <div class="focus-card">
+        <span class="fc-n">01</span>
+        <h3>API Development</h3>
+        <p>Scalable REST and WebSocket APIs with well-documented interfaces for web and mobile applications.</p>
+      </div>
+      <div class="focus-card">
+        <span class="fc-n">02</span>
+        <h3>Web Scraping</h3>
+        <p>Reliable data extraction pipelines, including bypassing sophisticated anti-bot defences at scale.</p>
+      </div>
+      <div class="focus-card">
+        <span class="fc-n">03</span>
+        <h3>Automation</h3>
+        <p>Scripts and workflows for data processing, system administration, and CI/CD pipelines.</p>
+      </div>
+      <div class="focus-card">
+        <span class="fc-n">04</span>
+        <h3>Cloud Infrastructure</h3>
+        <p>Deploying and managing high-performance applications on edge and cloud platforms.</p>
+      </div>
+      <div class="focus-card">
+        <span class="fc-n">05</span>
+        <h3>Utility Tools</h3>
+        <p>CLI and desktop tools that streamline development workflows and boost team productivity.</p>
+      </div>
+      <div class="focus-card">
+        <span class="fc-n">06</span>
+        <h3>Database Management</h3>
+        <p>Optimising relational and non-relational databases for integrity and performance at scale.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr class="hr">
+
+<!-- ── CONTACT ────────────────────────────────────── -->
+<div class="wrap">
+  <section id="contact">
+    <div class="sec-head rv">
+      <span class="sec-num">04</span>
+      <h2>Get in <em>touch</em></h2>
+    </div>
+
+    <div class="contact-grid rv">
+      <a class="cc" href="mailto:Disnakamadushan66@gmail.com">
+        <div class="cc-label">Email</div>
+        <div class="cc-title">Send a message</div>
+        <div class="cc-sub">Disnakamadushan66@gmail.com</div>
+        <span class="cc-arrow">↗</span>
+      </a>
+      <a class="cc" href="https://github.com/Danushka-Madushan" target="_blank">
+        <div class="cc-label">GitHub</div>
+        <div class="cc-title">View my repositories</div>
+        <div class="cc-sub">github.com/Danushka-Madushan</div>
+        <span class="cc-arrow">↗</span>
+      </a>
+      <a class="cc" href="https://danushka.zenthos.dev/" target="_blank">
+        <div class="cc-label">Portfolio</div>
+        <div class="cc-title">Personal website</div>
+        <div class="cc-sub">danushka.zenthos.dev</div>
+        <span class="cc-arrow">↗</span>
+      </a>
+    </div>
+  </section>
+</div>
+
+<hr class="hr">
+
+<!-- ── FOOTER ─────────────────────────────────────── -->
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <span>Danushka Madushan · Colombo, Sri Lanka</span>
+      <div class="footer-links">
+        <a href="mailto:Disnakamadushan66@gmail.com">Email</a>
+        <a href="https://github.com/Danushka-Madushan" target="_blank">GitHub</a>
+        <a href="https://danushka.zenthos.dev/" target="_blank">Portfolio</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('in'), i * 55);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
