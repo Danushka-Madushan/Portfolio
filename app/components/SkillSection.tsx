@@ -37,8 +37,8 @@ const SkillSection = () => {
   ]
 
   return (
-    <div className='mt-5 mx-8'>
-      <div className='flex flex-wrap gap-8 justify-center max-w-325'>
+    <div className='mt-5 px-4 sm:px-8'>
+      <div className='flex flex-wrap gap-6 justify-center max-w-full'>
         {
           CaseContent.map((item, index) => {
             return (
@@ -46,7 +46,7 @@ const SkillSection = () => {
                 isPressable={false}
                 disableRipple
                 key={index}
-                className='w-96'
+                className='w-full sm:w-80 md:w-96'
                 classNames={{
                   base: 'rounded-md bg-[#02060c] border border-gray-100/20'
                 }}

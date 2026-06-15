@@ -112,7 +112,7 @@ const FileUploadBox = () => {
 
   return (
     <div className='flex max-w-full w-full flex-col items-center justify-center gap-y-2 p-6'>
-      <div className='h-56 w-112.5 flex items-center justify-center'>
+      <div className='w-full max-w-md flex items-center justify-center'>
         <div
           onClick={onDivClick}
           onDragEnter={handleDragEnter}
@@ -120,18 +120,18 @@ const FileUploadBox = () => {
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
           className={cn(
-            'border-2 flex flex-col items-center active:w-98.75 active:h-45.5 justify-center relative border-dashed border-white/50 w-100 h-48 rounded-2xl transition-all',
-            isDragging ? 'border-indigo-700 w-107.5 h-52' : null
+            'border-2 flex flex-col items-center justify-center relative border-dashed border-white/50 w-full max-w-md h-48 sm:h-56 rounded-2xl transition-transform',
+            isDragging ? 'border-indigo-700 scale-105' : undefined
           )}>
           {
             ReadyFile ?
-              <div className='flex flex-col pointer-events-none items-center justify-center mb-2'>
+                <div className='flex flex-col pointer-events-none items-center justify-center mb-2'>
                 <FileArchive
                   className={`pointer-events-none mb-2 transition-all ${isDragging ? 'text-indigo-500' : 'text-gray-400'}`}
                   strokeWidth={1.5}
                   size={isDragging ? 44 : 42}
                 />
-                <span className='text-base pointer-events-none truncate max-w-72'>{ReadyFile.name}</span>
+                <span className='text-base pointer-events-none truncate max-w-full'>{ReadyFile.name}</span>
                 <span className='pointer-events-none'>{ByteFileSize(ReadyFile.size)}</span>
               </div>
               : <Upload
