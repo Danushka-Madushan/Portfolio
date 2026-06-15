@@ -112,7 +112,7 @@ const FileUploadBox = () => {
 
   return (
     <div className='flex max-w-full w-full flex-col items-center justify-center gap-y-2 p-6'>
-      <div className='h-56 w-[450px] flex items-center justify-center'>
+      <div className='h-56 w-112.5 flex items-center justify-center'>
         <div
           onClick={onDivClick}
           onDragEnter={handleDragEnter}
@@ -120,8 +120,8 @@ const FileUploadBox = () => {
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
           className={cn(
-            'border-2 flex flex-col items-center active:w-[395px] active:h-[182px] justify-center relative border-dashed border-white/50 w-[400px] h-48 rounded-2xl transition-all',
-            isDragging ? 'border-indigo-700 w-[430px] h-52' : null
+            'border-2 flex flex-col items-center active:w-98.75 active:h-45.5 justify-center relative border-dashed border-white/50 w-100 h-48 rounded-2xl transition-all',
+            isDragging ? 'border-indigo-700 w-107.5 h-52' : null
           )}>
           {
             ReadyFile ?
