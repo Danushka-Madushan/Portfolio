@@ -43,7 +43,7 @@ const SkillSection = () => {
           CaseContent.map((item, index) => {
             return (
               <Card
-                isPressable
+                isPressable={false}
                 disableRipple
                 key={index}
                 className='w-96'

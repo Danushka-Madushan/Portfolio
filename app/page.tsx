@@ -1,6 +1,5 @@
 import { Button } from '@heroui/button'
 import Hero from './components/Hero'
-import NextImage from 'next/image'
 import SkillSection from './components/SkillSection'
 import TechStack from './components/TechStack'
 import { Link } from '@heroui/link'
@@ -35,11 +34,14 @@ const Home = () => {
       <LearningStack />
       <div className='flex pt-8 mx-auto justify-center'>
         <Button as={Link} isExternal href={'https://github.com/Danushka-Madushan/'} className='bg-gray-800' endContent={
-          <NextImage
+          <img
             alt='GitHub'
             src={'/SkillIcons/SimpleIconsGithub.svg'}
             height={24}
             width={24}
+            loading="lazy"
+            decoding="async"
+            style={{ color: 'transparent' }}
           />
         } variant='solid' color='primary' size="lg">
           Github
